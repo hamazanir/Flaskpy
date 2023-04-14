@@ -2,9 +2,54 @@
 <html>
 <head>
     <title>ANAPLAN</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .loader {
+          border: 16px solid #f3f3f3;
+          border-radius: 50%;
+          border-top: 16px solid blue;
+          border-right: 16px solid green;
+          border-bottom: 16px solid red;
+          border-left: 16px solid pink;
+          width: 120px;
+          height: 120px;
+          -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        </style>
+
+
 </head>
-<body>
+
+
+<body class="w3-container w3-auto">
+
     <p>{{ output }}</p>
-Ma3leekch !!
+
+
+
+
+<div class="w3-panel w3-pale-green w3-border" id="content">
+  <h3>Success!</h3>
+  <p>Votre importation est fait avec succées. Merci de rafraichir votre liste ( DB) pour voir les données !</p>
+</div>
+
 </body>
+
+ <script>
+    // Ferme la page après 5 secondes
+    setTimeout(function() {
+      window.close();
+    }, 2000);
+</script>
 </html>
