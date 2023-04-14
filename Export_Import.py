@@ -328,12 +328,20 @@ dt['ISIN x Date']=dt['CD_PART_ISIN']+"_"+Month+"_"+dt['DT_DER_VALO'].str[-2:]
 
 def main():
   try:
-    # Get the data from the source
-    # data_content = bytes(dt,encoding="utf-8")
+    from datetime import date
+    today = date.today()
+
+    # dd/mm/YY
+    d1 = today.strftime("%d/%m/%Y")
+    print("d1 =", d1)
     # print(data_content)
-    anaplanImport = anaplanimp.executeExport("salah.el-habachi@asterigo.com", "Khatibhafida1999!", "[STG] Python",
-                                             "Grid - ISIN x Date.csv")
-    # anaplanImport = anaplanimp.executeImport("salah.el-habachi@asterigo.com", "Khatibhafida1999!","[STG] Python","IMP_MOD_STG01_TO_LIST_ISIN x Date [Python]",data_content)
+
+    date = pd.DataFrame(columns=['Today'])
+    date = date.append({'Today': d1}, ignore_index=True)
+    date = date.to_string(index=False)
+
+    data_content = bytes(date, encoding="utf-8")
+    anaplanImport = anaplanimp.executeImport("Jawad.benjelloun@asterigo.com", "Asterigo-2023","Air Liquide SA - Pricing management MVP / DEV PIC","IMP_FILE_TODAY_TO_SYS03_CURRENT_PERIOD",data_content)
 
   except:
     print("An exception occurred")
