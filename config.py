@@ -1,2 +1,2 @@
-DEBUG = True
-PORT = 3000
+DEBUG = False
+host='0.0.0.0'
